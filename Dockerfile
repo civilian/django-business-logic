@@ -16,8 +16,15 @@ WORKDIR app
 
 ADD . /app
 
+# python3.6-dev
+
+# RUN pip install --upgrade pip
+# RUN pip install --upgrade pip-tools
+
+RUN apk add gcc musl-dev python3-dev libffi-dev openssl-dev cargo
+
 RUN apk add --no-cache libxslt && \
-    apk add --no-cache --virtual .build-deps g++ python-dev libffi-dev openssl-dev libxslt-dev git && \
+    apk add --no-cache --virtual .build-deps g++  libffi-dev openssl-dev libxslt-dev git && \
     pip install -r requirements.dev.txt && \
     python setup.py install && \
     apk del .build-deps

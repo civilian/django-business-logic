@@ -123,8 +123,12 @@ setup(
         'Framework :: Django :: 2.2',
     ],
     zip_safe=False,
+    # install_requires=[
+    #     '{}; {}'.format(x.req, x.markers) if x.markers else str(x.req)
+    #     for x in parse_requirements(abs_path('requirements.txt'), session=False)
+    # ],
     install_requires=[
-        '{}; {}'.format(x.req, x.markers) if x.markers else str(x.req)
+        str(x.requirement)
         for x in parse_requirements(abs_path('requirements.txt'), session=False)
     ],
 )
