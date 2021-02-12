@@ -41,6 +41,7 @@
 Is the same repository of https://github.com/dgk/django-business-logic but corrected to work in febrary 10 of 2021 with the docker compose
 ####################################
 This needs to be run inside the container (because the django code is being mounted as a volume); 
+.. code-block:: bash
    python manage.py migrate && \
    python manage.py loaddata sites/dev/fixtures/data.json
 
